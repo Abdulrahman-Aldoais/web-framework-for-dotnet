@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.IsLayout = true;
+    Layout = "~/Areas/Admin/Views/Shared/_Common.cshtml";
+}
+
+<div class="wrapper">
+    @Html.Partial("_Header")
+    @Html.Partial("_MainSidebar")
+    <div class="content-wrapper">
+        @RenderBody()
+    </div>
+    @Html.Partial("_Footer")
+    @Html.Partial("_ControlSidebar")
+</div>
+@section styles {
+    @RenderSection("styles", false)
+}
+@section scripts{
+    @RenderSection("scripts", false)
+}

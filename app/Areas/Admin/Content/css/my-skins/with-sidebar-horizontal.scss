@@ -1,0 +1,218 @@
+﻿.with-sidebar-horizontal,
+.with-sidebar-horizontal.fixed {
+    .main-header {
+        & > .logo {
+            border-right: none;
+        }
+
+        .sidebar-toggle {
+            display: none;
+        }
+    }
+
+    .main-sidebar {
+        position: static;
+        padding-top: 0;
+        width: 100%;
+        min-height: 44px;
+        height: 44px;
+
+        .sidebar {
+            & > .user-panel {
+                display: none;
+            }
+
+            & > form {
+                display: none;
+            }
+
+            & > .sidebar-menu {
+                li {
+                    a {
+                        border-left: 0;
+
+                        & > i:first-child {
+                            display: none;
+                        }
+                    }
+                }
+
+                & > li {
+                    float: left;
+
+                    &.treeview:hover {
+                        .treeview-menu {
+                            display: block;
+                            padding-left: 0;
+                        }
+
+                        .pull-right-container {
+                            .fa-angle-left {
+                                -moz-transform: rotate(-90deg);
+                                -ms-transform: rotate(-90deg);
+                                -o-transform: rotate(-90deg);
+                                -webkit-transform: rotate(-90deg);
+                                transform: rotate(-90deg);
+                            }
+                        }
+                    }
+
+                    &.header {
+                        display: none;
+                    }
+
+                    a {
+                        padding: 12px 15px;
+
+                        & > .pull-right-container {
+                            display: inline-block;
+                            position: relative;
+
+                            .pull-right {
+                                float: none !important;
+                                position: relative;
+                                margin-top: -5px;
+                                margin-left: 15px;
+                            }
+                        }
+                    }
+
+                    & > ul.treeview-menu {
+                        position: absolute;
+                        padding-left: 0;
+                        z-index: 99999;
+                        width: 120%;
+                        box-shadow: rgba(0,0,0,.4) 5px 5px 10px;
+                        display: none;
+
+                        .treeview-menu {
+                            a {
+                                padding-left: 30px;
+                            }
+                        }
+
+                        li {
+
+                            a {
+                                & > .pull-right-container {
+                                    display: block;
+                                    position: absolute;
+                                    margin-top: -3px;
+
+                                    .pull-right {
+                                        float: right !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .content-wrapper {
+        margin-left: 0;
+    }
+
+    .main-footer {
+        margin-left: 0;
+    }
+}
+
+.with-sidebar-horizontal.fixed {
+    .main-sidebar {
+        position: fixed;
+        margin-top: 50px;
+    }
+
+    .content-wrapper {
+        padding-top: 94px;
+    }
+}
+
+@mixin setSkinForSidebarHorizontal($skinName, $skinColor) {
+    $hoverColor: darken($skinColor, 5%);
+    $hoverColorDarken: darken($hoverColor, 5%);
+
+    .with-sidebar-horizontal,
+    .with-sidebar-horizontal.fixed {
+        &.#{$skinName} {
+            .logo {
+                background-color: $skinColor;
+            }
+        }
+
+        &.#{$skinName}-light {
+            .logo,
+            .logo:hover {
+                background-color: #fff;
+                color: $skinColor;
+            }
+
+            .main-header {
+                .navbar {
+                    background-color: #fff;
+
+                    .nav > li {
+                        & > a,
+                        & > a:focus,
+                        & > a:hover,
+                        & > a:active {
+                            color: $skinColor;
+                        }
+                    }
+                }
+            }
+
+            .main-sidebar {
+                background-color: $skinColor;
+
+                a {
+                    color: #fff;
+                    font-weight: normal;
+                }
+
+                .sidebar-menu {
+                    background-color: $skinColor;
+
+                    & > li {
+
+                        &.header {
+                            color: #848484;
+                            background: #f9fafc;
+                        }
+
+                        & > a {
+                            font-weight: normal;
+                        }
+
+                        &:hover > a,
+                        &.active > a {
+                            background-color: $hoverColor;
+                            color: #fff;
+                        }
+
+
+
+                        & > .treeview-menu {
+                            background-color: $hoverColor;
+
+                            a:hover {
+                                background-color: $hoverColorDarken;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* override the default skins */
+@include setSkinForSidebarHorizontal("skin-red", #dd4b39);
+@include setSkinForSidebarHorizontal("skin-blue", #3c8dbc);
+@include setSkinForSidebarHorizontal("skin-purple", #605ca8);
+@include setSkinForSidebarHorizontal("skin-green", #00a65a);
+@include setSkinForSidebarHorizontal("skin-yellow", #f39c12);

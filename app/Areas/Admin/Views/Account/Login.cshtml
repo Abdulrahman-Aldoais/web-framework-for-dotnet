@@ -1,0 +1,98 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html ng-app="ngApp" ng-controller="LoginCtrl">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login - {{appSettings.appName}}</title>
+    <link href="~/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/css/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/plugins/jDialog/lib/alertifyjs/css/alertify.min.css" rel="stylesheet" />
+    <link href="~/plugins/jDialog/lib/layer/skin/layer.css" rel="stylesheet" />
+    <link href="~/plugins/jDialog/dist/jdialog.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/css/page-login.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Theme: left-top, top-logo, top-logo-one -->
+    <div class="page-login top-logo-one">
+        <div class="logo">
+            <img src="~/Areas/Admin/Content/img/logo.png" />
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="top-logo">
+                    <img src="~/Areas/Admin/Content/img/logo.png" />
+                </div>
+                <div class="panel-title">
+                    <span ng-bind="::appSettings.appShortName"></span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="left-logo">
+                    <img src="~/Areas/Admin/Content/img/logo.png" />
+                </div>
+                <form name="mainForm" novalidate ng-submit="login()">
+                    <div class="form-group" ng-class="{'has-error': mainForm.username.$dirty && mainForm.username.$invalid}">
+                        <label>Username</label>
+                        <div class="input-group">
+                            <input type="text" name="username" class="form-control" ng-model="model.userName" required />
+                            <div class="input-group-addon">
+                                <i class="fa fa-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': mainForm.username.$dirty && mainForm.username.$invalid}">
+                        <label>Password</label>
+                        <div class="input-group">
+                            <input type="password" name="password" class="form-control" ng-model="model.Password" required />
+                            <div class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary" ng-disabled="mainForm.$invalid || isLoading">
+                            <span ng-show="!isLoading">Login</span>
+                            <span ng-show="isLoading">
+                                <i class="fa fa-spin fa-spinner"></i>
+                                Login...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <span ng-bind-html="::appSettings.appCopyright"></span><br />
+            <span ng-bind-html="::appSettings.appShortName"></span>
+            <strong ng-bind-html="::appSettings.appVersion"></strong>
+        </div>
+    </div>
+    <script src="~/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="~/plugins/jDialog/lib/alertifyjs/js/alertify.js"></script>
+    <script src="~/plugins/jDialog/lib/layer/layer.js"></script>
+    <script src="~/plugins/jDialog/dist/jdialog.js"></script>
+    <script src="~/Areas/Admin/Content/js/appsettings.js"></script>
+
+    <script src="~/plugins/angular/angular.min.js"></script>
+    <script src="~/plugins/angular/angular-sanitize.min.js"></script>
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="~/plugins/angular/angular-animate.js"></script>
+    <script src="~/plugins/angular/angular-aria.js"></script>
+    <script src="~/plugins/angular/angular-messages.js"></script>
+    <script src="~/plugins/angular-material/angular-material.js"></script>
+    <script src="~/plugins/angular-file-upload/dist/angular-file-upload.js"></script>
+    <script src="~/plugins/angular-date-time-input/dateTimeInput.js"></script>
+    <script src="~/plugins/angular-bootstrap-datetimepicker/js/datetimepicker.js"></script>
+    <script src="~/plugins/angular-bootstrap-datetimepicker/js/datetimepicker.templates.js"></script>
+    <script src="~/plugins/angular-more/dist/angular-more.min.js"></script>
+
+    <script src="~/Areas/Admin/Content/js/ng-app.js"></script>
+    <script src="~/Areas/Admin/Content/js/pages/account/login.js"></script>
+</body>
+</html>

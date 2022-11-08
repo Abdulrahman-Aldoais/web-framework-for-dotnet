@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-index">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" ng-class="{active:  menu.actived}" ng-repeat="menu in activedMenus track by $index">
+            <a aria-controls="home" role="tab" data-toggle="tab" ng-class="{first: activedMenus.length == 1}" ng-bind="menu.text" ng-click="menuClick(menu, $event)"></a>
+            <span class="close" ng-click="destoryMenu(menu)" ng-show="activedMenus.length > 1">&times;</span>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane" ng-class="{active:  menu.actived}" id="{{menu.id}}" ng-repeat="menu in activedMenus track by menu.url" bn-fill-height>
+            <iframe id="mainFrame" style="width:100%;height:100%;" ng-src="{{menu.url}}" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+@section styles {
+    <link href="~/Areas/Admin/Content/css/page-home-index.min.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script>
+        $(function () {
+            if ($("body").hasClass("with-sidebar-horizontal")) {
+                $(".tab-content").height($(window).height() - $(".main-header").outerHeight()
+                    - $(".main-sidebar").outerHeight() - $(".main-footer").outerHeight()
+                    - $(".page-index > .nav-tabs").outerHeight());
+            }
+            else {
+                $(".tab-content").height($(window).height() - $(".main-header").outerHeight()
+                    - $(".main-footer").outerHeight()
+                    - $(".page-index > .nav-tabs").outerHeight());
+            }
+        });
+    </script>
+}

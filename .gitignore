@@ -1,0 +1,11 @@
+.vs
+web-framework.sln.GhostDoc.xml
+packages/*
+app/bin/
+app/obj/
+app/logs/
+app/App_Data/
+app/upload/
+
+models/bin/
+models/obj/

@@ -1,0 +1,188 @@
+﻿<div ng-controller="FormCtrl">
+    <section class="content-header">
+        <h1>
+            Form
+            <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <form name="form" method="post" novalidate ng-submit="submitForm()">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="fa fa-tag"></i>
+                    <h3 class="box-title">Normal</h3>
+                </div>
+                <div class="box-body">
+                    <div class="form-group">
+                        <label class="control-label">Required Field</label>
+                        <input name="requiredField" type="text" class="form-control" required ng-model="model.requiredField">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Date Picker</label>
+                                <div class="input-group">
+                                    <input type="text" class="date form-control" ng-model="model.date" readonly>
+                                    <div class="input-group-addon">
+                                        <i class="fa  fa-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Date Range Picker</label>
+                                <input type="text" class="daterange form-control" ng-model="model.daterange" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Email</label>
+                                <input type="email" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Field</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Field</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Field</label>
+                        <textarea class="html form-control"></textarea>
+                    </div>
+                </div>
+                <div class="box-footer clearfix">
+                    <button type="submit" class="pull-right btn btn-primary">
+                        <i class="fa fa-save"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <form>
+            <div class="box box-default">
+                <div class="box-header">
+                    <div class="box-title">
+                        <i class="fa fa-tag"></i> &lt;bn-ui-input /&gt;
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <bn-ui-input label="Field" ng-model="model.text" class="col-xs-4"></bn-ui-input>
+                        <bn-ui-input label="Field M/D/YYYY" ng-model="model.date" type="date" format="M/D/YYYY" class="col-xs-4"></bn-ui-input>
+                        <bn-ui-input label="Field M/D/YYYY h:mm a" ng-model="model.datetime" type="datetime" format="M/D/YYYY h:mm a" class="col-xs-4"></bn-ui-input>
+                    </div>
+                    <div class="row">
+                        <bn-ui-select label="Field" ng-model="model.select" source="options" class="col-xs-4"></bn-ui-select>
+                        <bn-ui-checks label="Field" ng-model="model.radio" source="options" with-icon="true" class="col-xs-4"></bn-ui-checks>
+                        <bn-ui-checks label="Field" ng-model="model.checkbox" source="options" multiple="true" with-icon="true" class="col-xs-4"></bn-ui-checks>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <form>
+            <div class="box box-default">
+                <div class="box-header">
+                    <div class="box-title">
+                        <i class="fa fa-tag"></i> Upload File
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="file" class="covered" nv-file-select="" uploader="uploader" multiple />
+                            &nbsp;
+                            <a onclick="$(this).prev().click()">
+                                <i class="fa fa-plus-circle"></i>
+                                Add Files
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th width="50%">Name</th>
+                                    <th ng-show="uploader.isHTML5">Size</th>
+                                    <th ng-show="uploader.isHTML5">Progress</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in uploader.queue">
+                                    <td><strong>{{ item.file.name }}</strong></td>
+                                    <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                    <td ng-show="uploader.isHTML5">
+                                        <div class="progress" style="margin-bottom: 0;">
+                                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                                        <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                        <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                                    </td>
+                                    <td nowrap>
+                                        <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                            <span class="glyphicon glyphicon-upload"></span> Upload
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                            <span class="glyphicon glyphicon-trash"></span> Remove
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div>
+                            <div>
+                                Queue progress:
+                                <div class="progress" style="">
+                                    <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                                <span class="glyphicon glyphicon-upload"></span> Upload all
+                            </button>
+                            <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                                <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+                            </button>
+                            <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                                <span class="glyphicon glyphicon-trash"></span> Remove all
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+</div>
+
+@section scripts{
+    <script src="~/Areas/Admin/Content/js/pages/example/form.js"></script>
+}

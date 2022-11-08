@@ -1,0 +1,70 @@
+﻿[
+  {
+    "outputFile": "Areas/Admin/Content/js/appsettings.js",
+    "inputFile": "Areas/Admin/Content/js/appsettings.coffee"
+  },
+  {
+    "outputFile": "Areas/Admin/Content/js/ng-app.js",
+    "inputFile": "Areas/Admin/Content/js/ng-app.coffee"
+  },
+  {
+    "outputFile": "Areas/Admin/Content/js/pages/_layout.js",
+    "inputFile": "Areas/Admin/Content/js/pages/_layout.coffee"
+  },
+  {
+    "outputFile": "Areas/Admin/Content/js/pages/account/login.js",
+    "inputFile": "Areas/Admin/Content/js/pages/account/login.coffee"
+  },
+  {
+    "outputFile": "plugins/jDialog/jdialog.js",
+    "inputFile": "plugins/jDialog/jdialog.coffee"
+  },
+  {
+    "outputFile": "Areas/Admin/Content/css/page-login.css",
+    "inputFile": "Areas/Admin/Content/css/page-login.scss"
+  },
+  {
+    "outputFile": "plugins/jDialog/jdialog.css",
+    "inputFile": "plugins/jDialog/jdialog.scss"
+  },
+  {
+    "outputFile": "Content/page-error.css",
+    "inputFile": "Content/page-error.scss"
+  },
+  {
+    "outputFile": "Areas/Admin/Content/css/my-skins/_all-my-skins.css",
+    "inputFile": "Areas/Admin/Content/css/my-skins/_all-my-skins.scss"
+  },
+  {
+    "outputFile": "Areas/Admin/Content/css/AdminLTE.mine.css",
+    "inputFile": "Areas/Admin/Content/css/AdminLTE.mine.scss"
+  },
+  {
+    "outputFile": "Areas/Admin/Content/css/style.css",
+    "inputFile": "Areas/Admin/Content/css/style.scss"
+  },
+  {
+    "outputFile": "Areas/Admin/Content/js/pages/example/form.js",
+    "inputFile": "Areas/Admin/Content/js/pages/example/form.coffee"
+  },
+  {
+    "outputFile": "Areas/Admin/Content/js/pages/example/table.js",
+    "inputFile": "Areas/Admin/Content/js/pages/example/table.coffee"
+  },
+  {
+    "outputFile": "Areas/Admin/Content/css/my-skins/with-sidebar-horizontal.css",
+    "inputFile": "Areas/Admin/Content/css/my-skins/with-sidebar-horizontal.scss"
+  },
+  {
+    "outputFile": "Areas/Admin/Content/css/my-skins/with-header-light.css",
+    "inputFile": "Areas/Admin/Content/css/my-skins/with-header-light.scss"
+  },
+  {
+    "outputFile": "Areas/Admin/Content/css/page-home-index.css",
+    "inputFile": "Areas/Admin/Content/css/page-home-index.scss"
+  },
+  {
+    "outputFile": "Content/style.css",
+    "inputFile": "Content/style.scss"
+  }
+]

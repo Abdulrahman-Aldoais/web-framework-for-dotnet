@@ -1,0 +1,50 @@
+﻿@model HomeIndexViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="banner" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        @for (var i = 0; i < Model.Banners.Count; i++)
+        {
+            <li data-target="#banner" data-slide-to="@i" class="@(i==0?"active":"")"></li>
+        }
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        @for (var i = 0; i < Model.Banners.Count; i++)
+        {
+            var banner = Model.Banners[i];
+            <div class="item @(i==0?"active":"")">
+                <img src="@banner.Image" alt="@banner.Caption">
+                <div class="carousel-caption">@banner.Caption</div>
+            </div>
+        }
+    </div>
+    <a class="left carousel-control" href="#banner" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#banner" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="jumbotron">
+    <h1>Web Framework</h1>
+    <p class="lead">
+        It is a web framework with Admin template for building great Web sites and Web applications using HTML, CSS and JavaScript.
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Front-end Plugins</h2>
+        <ul class="list-unstyled list-inline">
+            @foreach (var dir in new System.IO.DirectoryInfo(Server.MapPath("~/plugins")).GetDirectories())
+            {
+                <li>@dir.Name</li>
+            }
+        </ul>
+    </div>
+</div>

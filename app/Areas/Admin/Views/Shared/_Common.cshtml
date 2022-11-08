@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html ng-app="ngApp" @Html.Raw(ViewBag.IsLayout == true ? "ng-controller='LayoutCtrl'" : "")>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title ng-bind="appSettings.appName"></title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <link href="~/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/plugins/ionicons/css/ionicons.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/css/AdminLTE.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/css/skins/_all-skins.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/css/my-skins/_all-my-skins.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/plugins/iCheck/flat/blue.css" />
+    <link rel="stylesheet" href="~/plugins/morris/morris.css" />
+    <link rel="stylesheet" href="~/plugins/jvectormap/jquery-jvectormap-1.2.2.css" />
+    <link rel="stylesheet" href="~/plugins/datepicker/datepicker3.css" />
+    <link rel="stylesheet" href="~/plugins/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="~/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" />
+    <link rel="stylesheet" href="~/plugins/angular-material/angular-material.css" />
+
+    <!--jDialog-->
+    <link href="~/plugins/jDialog/lib/layer/skin/layer.css" rel="stylesheet" />
+    <link href="~/plugins/jDialog/lib/alertifyjs/css/alertify.min.css" rel="stylesheet" />
+    <link href="~/plugins/jDialog/dist/jdialog.css" rel="stylesheet" />
+
+    <!-- angular components -->
+    <link href="~/plugins/angular-bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet" />
+    <link href="~/plugins/angular-more/dist/angular-more.min.css" rel="stylesheet" />
+
+    <link href="~/Areas/Admin/Content/css/AdminLTE.mine.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/css/style.css" rel="stylesheet" />
+
+    @RenderSection("styles", false)
+
+    <!--[if lt IE 9]>
+      @Scripts.Render("~/bundles/ie8")
+    <![endif]-->
+</head>
+<!--
+    
+    fixed
+    layout-boxed
+    sidebar-mini
+    sidebar-collapse
+    control-sidebar-open
+
+    with-sidebar-horizontal
+    with-header-light
+-->
+<body class="fixed hold-transition sidebar-mini skin-blue">
+    @RenderBody()
+
+    <script src="~/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="~/plugins/jQueryUI/jquery-ui.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <script src="~/plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="~/plugins/lodash/lodash.js"></script>
+    <!-- Morris.js charts -->
+    <script src="~/plugins/raphael/raphael.min.js"></script>
+    <script src="~/plugins/morris/morris.min.js"></script>
+    <script src="~/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="~/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="~/plugins/knob/jquery.knob.js"></script>
+    <script src="~/plugins/moment/moment.js"></script>
+    <script src="~/plugins/moment/moment-with-locales.js"></script>
+    <script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="~/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
+    <script src="~/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <script src="~/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="~/plugins/fastclick/fastclick.js"></script>
+
+    <!--jDialog-->
+    <script src="~/plugins/jDialog/lib/alertifyjs/js/alertify.js"></script>
+    <script src="~/plugins/jDialog/lib/layer/layer.js"></script>
+    <script src="~/plugins/jDialog/dist/jdialog.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Areas/Admin/Content/js/app.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Areas/Admin/Content/js/demo.js"></script>
+
+    <script src="~/plugins/angular/angular.js"></script>
+    <script src="~/plugins/angular/angular-sanitize.js"></script>
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="~/plugins/angular/angular-animate.js"></script>
+    <script src="~/plugins/angular/angular-aria.js"></script>
+    <script src="~/plugins/angular/angular-messages.js"></script>
+    <script src="~/plugins/angular-material/angular-material.js"></script>
+
+    <script src="~/plugins/angular-file-upload/dist/angular-file-upload.js"></script>
+    <script src="~/plugins/angular-date-time-input/dateTimeInput.js"></script>
+    <script src="~/plugins/angular-bootstrap-datetimepicker/js/datetimepicker.js"></script>
+    <script src="~/plugins/angular-bootstrap-datetimepicker/js/datetimepicker.templates.js"></script>
+    <script src="~/plugins/angular-more/dist/angular-more.min.js"></script>
+    <script src="~/Areas/Admin/Content/js/appsettings.js"></script>
+    <script src="~/Areas/Admin/Content/js/ng-app.js"></script>
+    <script src="~/Areas/Admin/Content/js/pages/_layout.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

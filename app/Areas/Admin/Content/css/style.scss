@@ -1,0 +1,381 @@
+﻿@import "_variables.scss";
+
+html, body {
+    font-family: 'Segoe UI', 'Microsoft YaHei', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    background-color: transparent;
+}
+
+a {
+    cursor: pointer;
+}
+
+.padding {
+    padding: 15px;
+}
+
+.padding-lg {
+    padding: 30px;
+}
+
+.padding-sm {
+    padding: 5px;
+}
+
+.margin {
+    margin: 15px;
+}
+
+.margin-lg {
+    margin: 30px;
+}
+
+.margin-sm {
+    margin: 5px;
+}
+
+input[type="file"] {
+    &.covered {
+        position:absolute;
+        top: -100%;
+        left: -100%;
+    }
+}
+
+/* datepicker, daterangepicker */
+.datepicker.dropdown-menu {
+}
+
+.daterangepicker.dropdown-menu {
+    .daterangepicker_input {
+        input {
+            &.active {
+                background-color: $gray-lighter;
+            }
+        }
+    }
+
+    .ranges {
+        .range_inputs {
+            & > .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 8px;
+
+                &.btn-success {
+                    background-color: $color-success;
+                    border-color: $color-success-border;
+                }
+            }
+        }
+    }
+}
+
+
+/* html editor */
+ul.wysihtml5-toolbar {
+    & > li {
+        margin-bottom: 0;
+
+        .btn-group .btn,
+        & > .btn {
+            padding: 3px 6px;
+            border-bottom: none;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+}
+
+
+/* form */
+.form-group {
+    position: relative;
+}
+
+.radio,
+.radio-inline,
+.checkbox,
+.checkbox-inline {
+    & > label {
+        font-weight: normal;
+
+        [class^=iradio],
+        [class^=icheckbox] {
+            margin-top: -3px;
+            margin-left: -20px;
+        }
+    }
+}
+
+/* form */
+form {
+    select.form-control {
+        padding-left: 9px;
+    }
+
+    .form-control {
+        &.error {
+            border-color: $color-error;
+
+            & + label {
+                &.error {
+                    color: $color-error;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    font-weight: normal;
+                }
+            }
+        }
+
+        &[readonly] {
+            background-color: white;
+        }
+    }
+
+    input[type=radio],
+    input[type=checkbox] {
+        & + label {
+            &.error {
+                font-weight: normal;
+                position: absolute;
+                color: $color-error;
+                max-width: none;
+                width: 200px;
+                display: block;
+                top: 18px;
+                left: 0;
+            }
+        }
+    }
+
+    .row {
+        .form-control {
+            &.error {
+                & + label {
+                    &.error {
+                        right: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.form-inline {
+        .form-control {
+            &.error {
+                & + label {
+                    &.error {
+                        right: 0;
+                        top: -22px;
+
+                        @media (max-width: 768px) {
+                            top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.form-horizontal {
+        .form-control {
+            &.error {
+                & + label {
+                    &.error {
+                        right: 20px;
+                        top: 6px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.readonly {
+        display: none;
+
+        button,
+        input[type=button],
+        input[type=submit] {
+            display: none;
+        }
+
+        .form-control-feedback {
+            display: none;
+        }
+
+        .input-group-addon {
+            padding: 2px 0;
+            background-color: #fff;
+            border: none;
+            vertical-align: top;
+        }
+
+        .form-group {
+            margin-bottom: 5px;
+
+            .form-control-static {
+                padding-top: 0;
+                min-height: 12px;
+            }
+        }
+
+        &.form-horizontal {
+            label {
+                padding-top: 0;
+                padding-right: 0;
+            }
+        }
+
+        &.form-inline {
+            .form-control-static {
+                padding-right: 15px;
+            }
+        }
+    }
+}
+
+
+/* angular ui */
+.form-control {
+    &.ng-dirty {
+        &.ng-valid {
+            &.ng-not-empty {
+                /*border-color: $brand-success;*/
+            }
+        }
+
+        &.ng-invalid {
+            border-color: $color-error;
+        }
+    }
+}
+
+/* bn components */
+.panel-example {
+    padding: 55px 15px 15px 15px;
+    position: relative;
+
+    &:after {
+        content: "Example";
+        text-transform: uppercase;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.15em;
+        font-weight: 500;
+        color: rgba($gray-light, .6);
+        letter-spacing: 1px;
+    }
+}
+
+.bn-dialog-loaded,
+.bn-dialog-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background: rgba(255,255,255,.8);
+
+    .icon {
+    }
+
+    .text {
+    }
+}
+
+.bn-dialog-loaded {
+    background-color: transparent;
+}
+
+.bn-pager {
+    margin: 10px 0;
+
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .summary {
+        float: left;
+        margin: 7px 0;
+    }
+
+    nav {
+        float: right;
+
+        .pagination {
+            margin: 0;
+        }
+    }
+
+    @media (max-width: $screen-sm) {
+        .summary {
+            float: none;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            float: none;
+            text-align: center;
+        }
+    }
+}
+
+/* bootstrap */
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: $primary-color;
+}
+
+.table tr td .progress {
+    height: 1em;
+    margin-top: 3px;
+}
+
+
+
+
+/* layui */
+.layui-layer {
+    &.layui-layer-dialog {
+        margin-top: -100px;
+
+        .layui-layer-btn {
+            padding-bottom: 20px;
+
+            a {
+                height: 30px;
+            }
+
+            .layui-layer-btn0 {
+                border-color: $primary-color;
+                background-color: $primary-color;
+            }
+        }
+    }
+}
+
+
+/* material */
+.md-button.md-primary {
+    &.md-fab,
+    &.md-raised {
+        background-color: $primary-color;
+
+        &:not([disabled]):hover {
+            background-color: $primary-color;
+        }
+
+        &[disabled] {
+            background-color: rgba(0,0,0,0.12);
+        }
+    }
+}
+
+md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-icon,
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+    background-color: $primary-color;
+}
